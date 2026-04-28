@@ -429,6 +429,74 @@
   .stat-num { font-family:'Bebas Neue',sans-serif; font-size:52px; color:var(--lime); line-height:1; }
   .stat-lbl { font-size:11px; letter-spacing:3px; color:#88cc88; text-transform:uppercase; margin-top:4px; }
 
+  /* ── GOOGLE FORM SECTION ── */
+  .form-section {
+    background: linear-gradient(170deg, #0a2e0a, #060f06);
+    padding: 80px 24px;
+  }
+
+  .form-container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .form-wrapper {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(126,211,33,0.25);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 24px 72px rgba(0,0,0,0.5);
+  }
+
+  .form-header {
+    background: linear-gradient(90deg, var(--green2), var(--green3));
+    padding: 28px 24px;
+    text-align: center;
+  }
+
+  .form-header h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    color: white;
+    margin-bottom: 6px;
+    letter-spacing: 1px;
+  }
+
+  .form-header p {
+    font-size: 14px;
+    color: #d0f0d0;
+    margin: 0;
+  }
+
+  .form-embed {
+    padding: 24px;
+    background: rgba(10,46,10,0.5);
+    max-height: 800px;
+    overflow-y: auto;
+  }
+
+  .form-embed iframe {
+    width: 100%;
+    height: 600px;
+    border: none;
+    border-radius: 8px;
+  }
+
+  @media(max-width: 768px) {
+    .form-embed iframe {
+      height: 700px;
+    }
+  }
+
+  .form-note {
+    padding: 20px 24px;
+    background: rgba(126,211,33,0.08);
+    border-top: 1px solid rgba(126,211,33,0.2);
+    font-size: 13px;
+    color: #88cc88;
+    text-align: center;
+  }
+
   /* ── CTA ── */
   .cta-section {
     background:linear-gradient(135deg,#1a5c1a,#0d330d);
@@ -517,7 +585,7 @@
 <!-- TOPBAR -->
 <div class="topbar">
   <div class="topbar-brand">🌾 Pashuwala Agrotech</div>
-  <button class="topbar-cta" onclick="contactViaWhatsApp()">Order Silage Now</button>
+  <button class="topbar-cta" onclick="document.querySelector('.form-section').scrollIntoView({behavior:'smooth'})">Order Silage Now</button>
 </div>
 
 <!-- FLOATING BALES BG -->
@@ -541,7 +609,7 @@
   }
   
   function contactViaEmail() {
-    window.location.href = 'mailto:pashuwala.agrotech@yahoo.com?subject=Silage Bale Inquiry&body=Hi Pashuwala Agrotech,\n\nI am interested in your premium silage bales.\n\nPlease provide details and pricing.\n\nThank you!';
+    window.location.href = 'mailto:pashuwala.agrotech@yahoo.com?subject=Silage Bale Inquiry&body=Hi Pashuwala Agrotech,\n\nI am interested in your premium silage bales.\n\nPlease provide details and pricing.\n\nThanks!';
   }
   
   function contactViaPhone() {
@@ -629,7 +697,7 @@
 <!-- TICKER -->
 <div class="ticker">
   <span class="ticker-track">
-    🌾 Premium Silage Bales &nbsp;•&nbsp; ✅ Air-Tight Fermentation &nbsp;•&nbsp; 🐄 Boosts Milk Production &nbsp;•&nbsp; 💪 High Protein Feed &nbsp;•&nbsp; 🏆 10,000+ Farmers Trust Us &nbsp;•&nbsp; 🚚 Pan India Delivery &nbsp;•&nbsp; 🌡️ Preserved Nutrients Year-Round &nbsp;•&nbsp; 🌾 Premium Silage Bales &nbsp;•&nbsp; ✅ Air-Tight Fermentation &nbsp;•&nbsp; 🐄 Boosts Milk Production &nbsp;•&nbsp; 💪 High Protein Feed &nbsp;•&nbsp;
+    🌾 Premium Silage Bales &nbsp;•&nbsp; ✅ Air-Tight Fermentation &nbsp;•&nbsp; 🐄 Boosts Milk Production &nbsp;•&nbsp; 💪 High Protein Feed &nbsp;•&nbsp; 🏆 10,000+ Farmers Trust Us &nbsp;•&nbsp; 🌾 Premium Silage Bales &nbsp;•&nbsp; ✅ Air-Tight Fermentation
   </span>
 </div>
 
@@ -796,15 +864,39 @@
   </div>
   <div class="benefits-list">
     <div class="benefit reveal"><div class="b-icon">🥛</div><div><div class="b-title">18% More Milk</div><div class="b-desc">Consistent high-energy feed directly translates to higher daily milk yield</div></div></div>
-    <div class="benefit reveal" style="transition-delay:.1s"><div class="b-icon">💪</div><div><div class="b-title">Better Body Condition</div><div class="b-desc">Balanced nutrients improve weight gain and overall body health of cattle</div></div></div>
-    <div class="benefit reveal" style="transition-delay:.15s"><div class="b-icon">🌿</div><div><div class="b-title">Digestibility</div><div class="b-desc">Fermentation pre-digests fiber, making silage far easier to absorb than dry fodder</div></div></div>
-    <div class="benefit reveal" style="transition-delay:.2s"><div class="b-icon">🌞</div><div><div class="b-title">No Seasonal Shortage</div><div class="b-desc">Stock up in monsoon season — feed premium silage through summer & winter</div></div></div>
-    <div class="benefit reveal" style="transition-delay:.25s"><div class="b-icon">🐄</div><div><div class="b-title">Improved Reproduction</div><div class="b-desc">Well-nourished cattle show better heat cycles, conception rates and calving</div></div></div>
-    <div class="benefit reveal" style="transition-delay:.3s"><div class="b-icon">🏥</div><div><div class="b-title">Fewer Vet Visits</div><div class="b-desc">Stronger, better-fed cattle fall sick less — save on medicine and treatment costs</div></div></div>
+    <div class="benefit reveal" style="transition-delay:.1s"><div class="b-icon">💪</div><div><div class="b-title">Better Body Condition</div><div class="b-desc">Balanced nutrients improve weight gains and overall cattle health</div></div></div>
+    <div class="benefit reveal" style="transition-delay:.15s"><div class="b-icon">🌿</div><div><div class="b-title">Digestibility</div><div class="b-desc">Fermentation pre-digests fiber, making nutrients easily absorbable</div></div></div>
+    <div class="benefit reveal" style="transition-delay:.2s"><div class="b-icon">🌞</div><div><div class="b-title">No Seasonal Shortage</div><div class="b-desc">Stock up in monsoon season — feed year-round without worry</div></div></div>
+    <div class="benefit reveal" style="transition-delay:.25s"><div class="b-icon">🐄</div><div><div class="b-title">Improved Reproduction</div><div class="b-desc">Well-nourished cattle show better fertility and conception rates</div></div></div>
+    <div class="benefit reveal" style="transition-delay:.3s"><div class="b-icon">🏥</div><div><div class="b-title">Fewer Vet Visits</div><div class="b-desc">Stronger, better-fed cattle fall sick less often</div></div></div>
   </div>
 </section>
 
+<!-- ── GOOGLE FORM SECTION ── -->
+<section class="form-section">
+  <div class="form-container">
+    <div class="text-center" style="margin-bottom: 48px;">
+      <p class="s-label reveal">Quick Order</p>
+      <h2 class="s-title reveal">Reserve Your Silage Bales Today</h2>
+    </div>
+    
+    <div class="form-wrapper reveal">
+      <div class="form-header">
+        <h3>📋 Silage Order Form</h3>
+        <p>Fill in your details to reserve premium silage bales</p>
+      </div>
 
+      <div class="form-embed">
+        <!-- REPLACE THE SRC BELOW WITH YOUR GOOGLE FORM EMBED URL -->
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/viewform?embedded=true" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+
+      <div class="form-note">
+        ✅ We will contact you within 24 hours to confirm your order and provide delivery details.
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ── CTA ── -->
 <section class="cta-section">
