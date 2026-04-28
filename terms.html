@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms & Conditions | Pashuwala Agrotech</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-dark: #1B4D2E;
+    --green-mid: #2E7D32;
+    --green-light: #4CAF50;
+    --green-pale: #E8F5E9;
+    --green-border: #A5D6A7;
+    --gold: #C9A84C;
+    --text-dark: #1A1A1A;
+    --text-body: #3D3D3D;
+    --text-muted: #6B6B6B;
+    --bg: #FAFCF8;
+    --white: #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    background: var(--bg);
+    color: var(--text-body);
+    line-height: 1.8;
+  }
+
+  /* ── TOP BAR ── */
+  .topbar {
+    background: var(--green-dark);
+    color: #fff;
+    text-align: center;
+    padding: 10px 20px;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    font-family: 'Source Serif 4', serif;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--white);
+    border-bottom: 3px solid var(--green-light);
+    padding: 28px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+  }
+
+  .logo-block { display: flex; flex-direction: column; }
+  .logo-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 900;
+    color: var(--green-dark);
+    letter-spacing: 0.02em;
+    line-height: 1;
+  }
+  .logo-tagline {
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  .nav-links { display: flex; gap: 28px; }
+  .nav-links a {
+    text-decoration: none;
+    font-size: 14px;
+    color: var(--text-muted);
+    letter-spacing: 0.04em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--green-mid); }
+  .nav-links a.active { color: var(--green-mid); font-weight: 600; border-bottom: 2px solid var(--green-light); padding-bottom: 2px; }
+
+  /* ── HERO BANNER ── */
+  .hero {
+    background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-mid) 60%, #388E3C 100%);
+    padding: 64px 40px 56px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-label {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #fff;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 5vw, 52px);
+    color: #fff;
+    font-weight: 900;
+    line-height: 1.15;
+  }
+  .hero-sub {
+    color: rgba(255,255,255,0.75);
+    font-size: 15px;
+    margin-top: 14px;
+    font-style: italic;
+  }
+  .hero-meta {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-top: 32px;
+    flex-wrap: wrap;
+  }
+  .hero-meta-item {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 10px 20px;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 13px;
+  }
+  .hero-meta-item span { display: block; font-size: 11px; opacity: 0.7; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 3px; }
+
+  /* ── LAYOUT ── */
+  .page-wrap {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 60px 24px 80px;
+  }
+
+  /* ── TOC ── */
+  .toc {
+    background: var(--white);
+    border: 1px solid var(--green-border);
+    border-left: 5px solid var(--green-mid);
+    border-radius: 10px;
+    padding: 28px 32px;
+    margin-bottom: 56px;
+  }
+  .toc h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    color: var(--green-dark);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .toc ol {
+    padding-left: 20px;
+    columns: 2;
+    column-gap: 32px;
+  }
+  .toc ol li { margin-bottom: 8px; }
+  .toc ol li a {
+    text-decoration: none;
+    color: var(--green-mid);
+    font-size: 14px;
+    transition: color 0.2s;
+  }
+  .toc ol li a:hover { color: var(--green-dark); text-decoration: underline; }
+
+  /* ── SECTIONS ── */
+  .section {
+    margin-bottom: 52px;
+    animation: fadeUp 0.5s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid var(--green-pale);
+  }
+  .section-num {
+    width: 40px; height: 40px;
+    background: var(--green-mid);
+    color: #fff;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: var(--green-dark);
+    font-weight: 700;
+  }
+
+  .section h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin: 24px 0 10px;
+    padding-left: 12px;
+    border-left: 3px solid var(--green-light);
+  }
+
+  .section p {
+    font-size: 15px;
+    color: var(--text-body);
+    margin-bottom: 14px;
+    line-height: 1.85;
+  }
+
+  .section ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 14px;
+  }
+  .section ul li {
+    padding: 8px 12px 8px 36px;
+    position: relative;
+    font-size: 15px;
+    color: var(--text-body);
+    border-radius: 6px;
+    margin-bottom: 4px;
+    transition: background 0.2s;
+  }
+  .section ul li:hover { background: var(--green-pale); }
+  .section ul li::before {
+    content: '✦';
+    position: absolute;
+    left: 12px;
+    color: var(--green-light);
+    font-size: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  /* ── INFO BOX ── */
+  .info-box {
+    background: var(--green-pale);
+    border: 1px solid var(--green-border);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin: 16px 0;
+  }
+  .info-box p { margin: 0; font-size: 14px; color: var(--green-dark); }
+
+  /* ── HIGHLIGHT ── */
+  .highlight-box {
+    background: linear-gradient(135deg, #FFF8E1, #FFFDE7);
+    border: 1px solid #FFD54F;
+    border-left: 4px solid var(--gold);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 16px 0;
+    font-size: 14px;
+    color: #5D4037;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--green-dark);
+    color: rgba(255,255,255,0.8);
+    text-align: center;
+    padding: 40px 24px;
+  }
+  footer .footer-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+  footer p { font-size: 13px; margin-bottom: 6px; }
+  footer .footer-links { display: flex; justify-content: center; gap: 24px; margin-top: 20px; flex-wrap: wrap; }
+  footer .footer-links a {
+    color: rgba(255,255,255,0.65);
+    text-decoration: none;
+    font-size: 13px;
+    transition: color 0.2s;
+  }
+  footer .footer-links a:hover { color: #fff; }
+  .footer-divider { width: 60px; height: 2px; background: var(--green-light); margin: 16px auto; }
+
+  /* ── BACK TO TOP ── */
+  .back-top {
+    position: fixed;
+    bottom: 28px; right: 28px;
+    background: var(--green-mid);
+    color: #fff;
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(46,125,50,0.4);
+    transition: transform 0.2s, background 0.2s;
+  }
+  .back-top:hover { background: var(--green-dark); transform: translateY(-3px); }
+
+  @media (max-width: 640px) {
+    header { flex-direction: column; gap: 16px; align-items: flex-start; }
+    .nav-links { flex-wrap: wrap; gap: 16px; }
+    .toc ol { columns: 1; }
+    .hero { padding: 44px 20px 36px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">🌿 Pashuwala Agrotech — Manufacturer &amp; Supplier of Premium Silage Bales | India</div>
+
+<header>
+  <div class="logo-block">
+    <div class="logo-name">Pashuwala Agrotech</div>
+    <div class="logo-tagline">Silage Bale Specialists · India</div>
+  </div>
+  <nav class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="terms.html" class="active">Terms &amp; Conditions</a>
+    <a href="refund-policy.html">Refund Policy</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <div class="hero-label">Legal Document</div>
+  <h1>Terms &amp; Conditions</h1>
+  <p class="hero-sub">For online purchases on our website — Please read carefully before placing an order</p>
+  <div class="hero-meta">
+    <div class="hero-meta-item"><span>Jurisdiction</span>India</div>
+    <div class="hero-meta-item"><span>Applicable To</span>All Online Sales</div>
+    <div class="hero-meta-item"><span>Language</span>English</div>
+  </div>
+</div>
+
+<div class="page-wrap">
+
+  <!-- TABLE OF CONTENTS -->
+  <div class="toc">
+    <h3>📋 Table of Contents</h3>
+    <ol>
+      <li><a href="#s1">Introduction &amp; Acceptance</a></li>
+      <li><a href="#s2">Company Information</a></li>
+      <li><a href="#s3">Products</a></li>
+      <li><a href="#s4">Orders &amp; Pricing</a></li>
+      <li><a href="#s5">Payment Terms</a></li>
+      <li><a href="#s6">Delivery &amp; Shipping</a></li>
+      <li><a href="#s7">Intellectual Property</a></li>
+      <li><a href="#s8">User Responsibilities</a></li>
+      <li><a href="#s9">Limitation of Liability</a></li>
+      <li><a href="#s10">Governing Law</a></li>
+      <li><a href="#s11">Amendments</a></li>
+      <li><a href="#s12">Contact Us</a></li>
+    </ol>
+  </div>
+
+  <!-- SECTION 1 -->
+  <div class="section" id="s1">
+    <div class="section-header">
+      <div class="section-num">1</div>
+      <h2>Introduction &amp; Acceptance</h2>
+    </div>
+    <p>Welcome to <strong>Pashuwala Agrotech</strong> ("Company", "we", "our", or "us"). These Terms and Conditions ("Terms") govern your access to and use of our website and the purchase of our products, including silage bales and related agricultural goods.</p>
+    <p>By placing an order or using our website, you confirm that you have read, understood, and agree to be bound by these Terms.</p>
+    <div class="highlight-box">⚠️ If you do not agree to these Terms, please do not use our website or place any orders.</div>
+  </div>
+
+  <!-- SECTION 2 -->
+  <div class="section" id="s2">
+    <div class="section-header">
+      <div class="section-num">2</div>
+      <h2>Company Information</h2>
+    </div>
+    <p>Pashuwala Agrotech is registered and operates in <strong>India</strong> as a manufacturer, supplier, and seller of silage bales and allied agricultural products. All transactions are subject to Indian law.</p>
+    <div class="info-box">
+      <p>🌿 We are committed to providing high-quality silage bale products that meet the needs of farmers and livestock owners across India.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 3 -->
+  <div class="section" id="s3">
+    <div class="section-header">
+      <div class="section-num">3</div>
+      <h2>Products</h2>
+    </div>
+    <h3>3.1 Product Description</h3>
+    <p>We offer silage bales manufactured under controlled quality conditions suitable for livestock and animal feed purposes. Product specifications, weight, quantity, and quality are described on respective product pages.</p>
+    <h3>3.2 Product Availability</h3>
+    <p>All product listings are subject to availability. We reserve the right to limit quantities, discontinue products, or modify specifications without prior notice.</p>
+    <h3>3.3 Product Images &amp; Descriptions</h3>
+    <p>While we strive for accuracy, product images are for illustrative purposes only. Actual products may vary slightly due to the natural nature of agricultural goods.</p>
+  </div>
+
+  <!-- SECTION 4 -->
+  <div class="section" id="s4">
+    <div class="section-header">
+      <div class="section-num">4</div>
+      <h2>Orders &amp; Pricing</h2>
+    </div>
+    <h3>4.1 Order Placement</h3>
+    <p>By placing an order on our website, you are making an offer to purchase the selected product(s). We reserve the right to accept or reject any order.</p>
+    <h3>4.2 Pricing</h3>
+    <ul>
+      <li>All prices are listed in Indian Rupees (INR) and are inclusive of applicable taxes unless stated otherwise.</li>
+      <li>Prices are subject to change without prior notice.</li>
+      <li>Delivery / shipping charges, if applicable, will be displayed at checkout.</li>
+    </ul>
+    <h3>4.3 Order Confirmation</h3>
+    <p>An order confirmation will be sent to your registered email address. This confirmation does not guarantee product availability; we will notify you if your order cannot be fulfilled.</p>
+  </div>
+
+  <!-- SECTION 5 -->
+  <div class="section" id="s5">
+    <div class="section-header">
+      <div class="section-num">5</div>
+      <h2>Payment Terms</h2>
+    </div>
+    <ul>
+      <li>We accept payments via UPI, Net Banking, Debit/Credit Cards, and other payment gateways as listed on the website.</li>
+      <li>Payment must be made in full at the time of placing the order.</li>
+      <li>Pashuwala Agrotech is not responsible for any additional charges levied by your bank or payment provider.</li>
+      <li>In case of payment failure, the order will not be processed. Please retry or contact our support team.</li>
+    </ul>
+  </div>
+
+  <!-- SECTION 6 -->
+  <div class="section" id="s6">
+    <div class="section-header">
+      <div class="section-num">6</div>
+      <h2>Delivery &amp; Shipping</h2>
+    </div>
+    <h3>6.1 Delivery Area</h3>
+    <p>We currently deliver within India. Delivery to certain remote or restricted areas may be subject to additional charges or may not be available.</p>
+    <h3>6.2 Delivery Timelines</h3>
+    <p>Estimated delivery timelines are provided at the time of order and are approximate. Actual delivery may vary due to weather, logistics, seasonal demand, or force majeure events.</p>
+    <h3>6.3 Risk of Loss</h3>
+    <p>Risk of loss or damage passes to the buyer upon delivery of the product to the shipping carrier or delivery agent. We are not liable for delays or damages caused by third-party logistics providers after dispatch.</p>
+    <h3>6.4 Inspection on Delivery</h3>
+    <div class="highlight-box">⚠️ We strongly advise buyers to inspect the goods upon delivery and report any visible damage or discrepancy immediately, before signing the delivery acknowledgment.</div>
+  </div>
+
+  <!-- SECTION 7 -->
+  <div class="section" id="s7">
+    <div class="section-header">
+      <div class="section-num">7</div>
+      <h2>Intellectual Property</h2>
+    </div>
+    <p>All content on this website — including but not limited to logos, product images, text, and design — is the exclusive property of <strong>Pashuwala Agrotech</strong>. Unauthorized reproduction, distribution, or use of any content is strictly prohibited and may result in legal action.</p>
+  </div>
+
+  <!-- SECTION 8 -->
+  <div class="section" id="s8">
+    <div class="section-header">
+      <div class="section-num">8</div>
+      <h2>User Responsibilities</h2>
+    </div>
+    <ul>
+      <li>You must be 18 years of age or older to place an order.</li>
+      <li>You are responsible for providing accurate delivery and contact information.</li>
+      <li>You agree not to misuse the website, engage in fraudulent activity, or place false orders.</li>
+      <li>You agree to use the products solely for lawful and intended agricultural purposes.</li>
+    </ul>
+  </div>
+
+  <!-- SECTION 9 -->
+  <div class="section" id="s9">
+    <div class="section-header">
+      <div class="section-num">9</div>
+      <h2>Limitation of Liability</h2>
+    </div>
+    <p>To the maximum extent permitted under applicable Indian law, Pashuwala Agrotech shall not be liable for:</p>
+    <ul>
+      <li>Any indirect, incidental, or consequential damages arising from product use.</li>
+      <li>Loss of livestock, crops, or income attributed to product use.</li>
+      <li>Delays in delivery beyond our reasonable control.</li>
+    </ul>
+    <div class="info-box">
+      <p>📌 Our total liability in any matter shall not exceed the amount paid by you for the specific order in question.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 10 -->
+  <div class="section" id="s10">
+    <div class="section-header">
+      <div class="section-num">10</div>
+      <h2>Governing Law &amp; Dispute Resolution</h2>
+    </div>
+    <p>These Terms shall be governed by and construed in accordance with the <strong>laws of India</strong>. Any disputes arising out of or in connection with these Terms shall first be attempted to be resolved amicably. If unresolved, the matter shall be subject to the exclusive jurisdiction of the competent courts in India.</p>
+  </div>
+
+  <!-- SECTION 11 -->
+  <div class="section" id="s11">
+    <div class="section-header">
+      <div class="section-num">11</div>
+      <h2>Amendments to Terms</h2>
+    </div>
+    <p>Pashuwala Agrotech reserves the right to update or modify these Terms at any time without prior notice. The revised Terms will be posted on the website with the updated effective date. Continued use of the website after any changes constitutes your acceptance of the new Terms.</p>
+  </div>
+
+  <!-- SECTION 12 -->
+  <div class="section" id="s12">
+    <div class="section-header">
+      <div class="section-num">12</div>
+      <h2>Contact Us</h2>
+    </div>
+    <p>For any questions regarding these Terms, please reach out to us:</p>
+    <div class="info-box">
+      <p>📧 <strong>Pashuwala Agrotech</strong> — Use the Contact / Support section on our website to raise any query related to these Terms and Conditions.</p>
+    </div>
+  </div>
+
+  <!-- ACKNOWLEDGMENT -->
+  <div style="background: linear-gradient(135deg, var(--green-dark), var(--green-mid)); border-radius: 14px; padding: 36px 32px; text-align: center; margin-top: 60px;">
+    <p style="color: rgba(255,255,255,0.85); font-style: italic; font-size: 15px; line-height: 1.9; margin: 0;">
+      By using our website and placing an order, you acknowledge that you have read, understood, and agreed to these <strong style="color:#fff;">Terms and Conditions</strong> of Pashuwala Agrotech.
+    </p>
+    <div style="margin-top: 20px;">
+      <a href="refund-policy.html" style="display:inline-block; background:#fff; color: var(--green-dark); font-size:14px; font-weight:700; padding: 12px 28px; border-radius: 6px; text-decoration: none; letter-spacing: 0.04em;">View Refund Policy →</a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-brand">Pashuwala Agrotech</div>
+  <p>Manufacturer · Supplier · Seller of Silage Bales</p>
+  <p>India</p>
+  <div class="footer-divider"></div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="index.html#products">Products</a>
+    <a href="terms.html">Terms &amp; Conditions</a>
+    <a href="refund-policy.html">Refund Policy</a>
+    <a href="index.html#contact">Contact Us</a>
+  </div>
+  <p style="margin-top:24px; font-size:12px; opacity:0.5;">© 2025 Pashuwala Agrotech. All Rights Reserved.</p>
+</footer>
+
+<a href="#" class="back-top" title="Back to top">↑</a>
+
+</body>
+</html>
