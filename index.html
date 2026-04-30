@@ -1003,3 +1003,87 @@ t<!DOCTYPE html>
 </script>
 </body>
 </html>
+<style>
+    :root {
+        --agri-green: #2e7d32; /* Deep Organic Green */
+        --agri-light: #f1f8e9; /* Very Light Mint */
+    }
+
+    #chat-widget {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1000;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    #chat-button {
+        background-color: var(--agri-green);
+        color: white;
+        border: none;
+        padding: 15px 25px;
+        border-radius: 50px;
+        cursor: pointer;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        font-weight: bold;
+        transition: transform 0.2s;
+    }
+
+    #chat-button:hover {
+        transform: scale(1.05);
+    }
+
+    #chat-box {
+        display: none;
+        width: 320px;
+        height: 450px;
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        flex-direction: column;
+        overflow: hidden;
+        margin-bottom: 15px;
+    }
+
+    .chat-header {
+        background: var(--agri-green);
+        color: white;
+        padding: 15px;
+        text-align: center;
+        font-size: 1.1em;
+    }
+
+    #chat-messages {
+        flex: 1;
+        padding: 15px;
+        overflow-y: auto;
+        background-color: var(--agri-light);
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .message {
+        padding: 8px 12px;
+        border-radius: 10px;
+        max-width: 80%;
+        font-size: 0.9em;
+    }
+
+    .bot-msg { background: white; align-self: flex-start; color: #333; border: 1px solid #ddd; }
+    .user-msg { background: var(--agri-green); color: white; align-self: flex-end; }
+
+    .chat-input-area {
+        display: flex;
+        padding: 10px;
+        border-top: 1px solid #eee;
+    }
+
+    #user-input {
+        flex: 1;
+        border: 1px solid #ccc;
+        padding: 8px;
+        border-radius: 5px;
+        outline: none;
+    }
+</style>
