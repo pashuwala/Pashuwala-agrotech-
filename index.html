@@ -1099,3 +1099,48 @@ t<!DOCTYPE html>
     </div>
     <button id="chat-button" onclick="toggleChat()">💬 Chat with Agri-Bot</button>
 </div>
+const botData = {
+    "price": "Our premium silage pricing depends on quantity (per ton/bale). Would you like our latest price list for Corn or Grass silage?",
+    "quality": "Our silage is fermented for 45+ days with a target pH of 4.2-4.5 to ensure maximum nutrient retention and digestibility for your cattle.",
+    "moisture": "We maintain a strict 65-70% moisture level to prevent spoilage and ensure your livestock gets high-energy feed.",
+    "benefit": "Silage increases milk yield and provides a consistent green fodder source during the dry season when fresh grass is unavailable.",
+    "contact": "Please share your phone number or village name, and our supervisor will call you within 1 hour."
+};
+
+function toggleChat() {
+    const chatBox = document.getElementById('chat-box');
+    chatBox.style.display = (chatBox.style.display === 'none' || chatBox.style.display === '') ? 'flex' : 'none';
+}
+
+document.getElementById('user-input').addEventListener('keypress', function (e) {
+    if (e.key === 'Enter' && this.value.trim() !== "") {
+        const msgContainer = document.getElementById('chat-messages');
+        const userText = this.value.toLowerCase();
+
+        // 1. Add User Message UI
+        msgContainer.innerHTML += `<div class="message user-msg">${this.value}</div>`;
+        this.value = "";
+        msgContainer.scrollTop = msgContainer.scrollHeight;
+
+        // 2. Silage Bot Thinking...
+        setTimeout(() => {
+            let reply = "I'm not sure about that. Would you like to speak to our Silage Specialist? Just type 'Contact'.";
+
+            // Keyword Matching Logic
+            if (userText.includes("price") || userText.includes("rate") || userText.includes("cost")) {
+                reply = botData.price;
+            } else if (userText.includes("quality") || userText.includes("protein") || userText.includes("ph")) {
+                reply = botData.quality;
+            } else if (userText.includes("moisture") || userText.includes("wet") || userText.includes("dry")) {
+                reply = botData.moisture;
+            } else if (userText.includes("benefit") || userText.includes("milk") || userText.includes("cow")) {
+                reply = botData.benefit;
+            } else if (userText.includes("contact") || userText.includes("call") || userText.includes("phone")) {
+                reply = botData.contact;
+            }
+
+            msgContainer.innerHTML += `<div class="message bot-msg">${reply}</div>`;
+            msgContainer.scrollTop = msgContainer.scrollHeight;
+        }, 800);
+    }
+});
