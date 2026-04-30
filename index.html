@@ -1003,3 +1003,211 @@ t<!DOCTYPE html>
 </script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pashuwala Agrotech | Premium Silage Experts</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --agri-green: #2e7d32;
+            --agri-dark: #1b5e20;
+            --agri-light: #f1f8e9;
+            --text-grey: #444;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: var(--text-grey);
+        }
+
+        /* Basic Header Styling */
+        header {
+            background: var(--agri-green);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* CHATBOT STYLES */
+        #chat-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        #chat-button {
+            background-color: var(--agri-green);
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        #chat-box {
+            display: none; /* Hidden by default */
+            width: 320px;
+            height: 450px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+            flex-direction: column;
+            overflow: hidden;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+        }
+
+        .chat-header {
+            background: var(--agri-green);
+            color: white;
+            padding: 15px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #chat-messages {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            background-color: var(--agri-light);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .message {
+            padding: 10px 14px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            line-height: 1.4;
+            max-width: 85%;
+        }
+
+        .bot-msg { background: white; align-self: flex-start; border: 1px solid #dee2e6; color: #333; }
+        .user-msg { background: var(--agri-green); color: white; align-self: flex-end; }
+
+        .chat-input-area {
+            display: flex;
+            padding: 10px;
+            background: white;
+            border-top: 1px solid #eee;
+        }
+
+        #user-input {
+            flex: 1;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 20px;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Pashuwala Agrotech</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="contact.html">Contact Us</a>
+        </nav>
+    </header>
+
+    <main style="padding: 50px; text-align: center;">
+        <h2>Premium Corn Silage for Healthy Cattle</h2>
+        <p>Increase your milk production with our scientifically fermented silage.</p>
+        <img src="https://via.placeholder.com/600x300/e8f5e9/2e7d32?text=Silage+Production+Unit" alt="Silage" style="border-radius: 10px; max-width: 100%;">
+    </main>
+
+    <div id="chat-widget">
+        <div id="chat-box">
+            <div class="chat-header">
+                <span>🌾 Silage Expert</span>
+                <button onclick="toggleChat()" style="background:none; border:none; color:white; cursor:pointer;">✕</button>
+            </div>
+            <div id="chat-messages">
+                <div class="message bot-msg">Namaste! I am the Pashuwala Assistant. Are you looking for high-quality silage for your cows or buffaloes?</div>
+            </div>
+            <div class="chat-input-area">
+                <input type="text" id="user-input" placeholder="Type your question here...">
+            </div>
+        </div>
+        <button id="chat-button" onclick="toggleChat()">
+            <span>💬 Chat with us</span>
+        </button>
+    </div>
+
+    <script>
+        // Toggle Chatbox visibility
+        function toggleChat() {
+            const chatBox = document.getElementById('chat-box');
+            if (chatBox.style.display === 'none' || chatBox.style.display === '') {
+                chatBox.style.display = 'flex';
+            } else {
+                chatBox.style.display = 'none';
+            }
+        }
+
+        // Silage Knowledge Base
+        const silageAnswers = {
+            "price": "Our Corn Silage is priced competitively based on the weight (Tons). For a bulk quote, please leave your phone number!",
+            "protein": "Our silage maintains a crude protein level of 8-9% and high energy values, perfect for dairy cattle.",
+            "delivery": "We deliver across the region using specialized trucks to ensure the silage stays fresh and compressed.",
+            "moisture": "We maintain 65% moisture—the 'Gold Standard' for cattle silage to prevent mold.",
+            "contact": "You can call our main office at [Insert Phone] or leave your number here!",
+            "default": "That's a great question about silage! Type 'price', 'quality', or 'contact' to learn more, or talk to our human expert."
+        };
+
+        // Handle User Input
+        document.getElementById('user-input').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter' && this.value.trim() !== "") {
+                const msgContainer = document.getElementById('chat-messages');
+                const userText = this.value;
+
+                // Add User Message
+                msgContainer.innerHTML += `<div class="message user-msg">${userText}</div>`;
+                this.value = "";
+                msgContainer.scrollTop = msgContainer.scrollHeight;
+
+                // Bot Logic
+                setTimeout(() => {
+                    const lowerText = userText.toLowerCase();
+                    let response = silageAnswers["default"];
+
+                    if (lowerText.includes("price") || lowerText.includes("rate")) response = silageAnswers["price"];
+                    else if (lowerText.includes("quality") || lowerText.includes("protein")) response = silageAnswers["protein"];
+                    else if (lowerText.includes("delivery") || lowerText.includes("where")) response = silageAnswers["delivery"];
+                    else if (lowerText.includes("moisture") || lowerText.includes("water")) response = silageAnswers["moisture"];
+                    else if (lowerText.includes("contact") || lowerText.includes("phone") || lowerText.includes("call")) response = silageAnswers["contact"];
+
+                    msgContainer.innerHTML += `<div class="message bot-msg">${response}</div>`;
+                    msgContainer.scrollTop = msgContainer.scrollHeight;
+                }, 800);
+            }
+        });
+    </script>
+
+</body>
+</html>
