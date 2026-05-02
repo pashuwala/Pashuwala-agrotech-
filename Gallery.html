@@ -1,1 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery | Pashuwala Agrotech</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--gd:#1a3c2e;--gm:#2d6a4f;--gb:#40916c;--gl:#74c69d;--gp:#b7e4c7;--cr:#f8f5ee;--go:#c9a84c}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--gd);color:var(--cr);font-family:'DM Sans',sans-serif;overflow-x:hidden}
+.dot-grid{position:fixed;inset:0;z-index:1;background-image:radial-gradient(circle,rgba(116,198,157,.06) 1px,transparent 1px);background-size:36px 36px;pointer-events:none}
+.orb{position:fixed;z-index:1;border-radius:50%;filter:blur(80px);pointer-events:none}
+.orb1{width:500px;height:500px;top:-100px;right:-100px;background:rgba(64,145,108,.12)}
+.orb2{width:400px;height:400px;bottom:100px;left:-80px;background:rgba(45,106,79,.1)}
+header{position:relative;z-index:10;padding:0 5vw;background:linear-gradient(180deg,rgba(10,25,18,.98),rgba(26,60,46,.85));border-bottom:1px solid rgba(116,198,157,.18);display:flex;align-items:center;justify-content:space-between;height:76px}
+.logo{display:flex;align-items:center;gap:12px}
+.logo-icon{width:44px;height:44px;background:linear-gradient(135deg,var(--gb),var(--go));border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;box-shadow:0 4px 20px rgba(64,145,108,.5)}
+.logo-text strong{display:block;font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--cr)}
+.logo-text span{font-size:.68rem;color:var(--gl);letter-spacing:.18em;text-transform:uppercase}
+nav{display:flex;gap:28px}
+nav a{color:rgba(248,245,238,.6);text-decoration:none;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;transition:color .25s}
+nav a:hover,nav a.active{color:var(--gl)}
+.hero{position:relative;z-index:2;height:260px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 110%,rgba(64,145,108,.35),transparent 70%),linear-gradient(180deg,rgba(10,25,18,1),var(--gd))}
+.badge{display:inline-flex;align-items:center;gap:8px;background:rgba(116,198,157,.12);border:1px solid rgba(116,198,157,.3);border-radius:50px;padding:5px 16px;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gl);margin-bottom:14px}
+h1{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,5vw,4.2rem);font-weight:900;color:var(--cr)}
+h1 em{font-style:italic;background:linear-gradient(90deg,var(--gl),var(--go));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.sub{margin-top:10px;color:rgba(248,245,238,.5);font-size:.88rem}
+.filters{position:relative;z-index:5;display:flex;justify-content:center;gap:10px;flex-wrap:wrap;padding:24px 5vw}
+.fb{background:rgba(45,106,79,.18);border:1px solid rgba(116,198,157,.22);color:rgba(248,245,238,.7);padding:8px 20px;border-radius:50px;font-family:'DM Sans',sans-serif;font-size:.8rem;cursor:pointer;transition:all .25s}
+.fb:hover,.fb.on{background:var(--gb);border-color:var(--gb);color:#fff;box-shadow:0 4px 20px rgba(64,145,108,.4)}
+.stats{position:relative;z-index:2;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(116,198,157,.08);border-top:1px solid rgba(116,198,157,.12);border-bottom:1px solid rgba(116,198,157,.12);margin-bottom:46px}
+.st{padding:28px;text-align:center;background:rgba(10,25,18,.6);transition:background .3s}
+.st:hover{background:rgba(45,106,79,.25)}
+.sn{font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:700;color:var(--gl);line-height:1}
+.su{font-size:1rem;color:var(--go)}
+.sl{margin-top:5px;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(248,245,238,.5)}
+.gsec{position:relative;z-index:2;padding:0 4vw 70px;max-width:1300px;margin:0 auto}
+.slabel{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.slabel h2{font-family:'Playfair Display',serif;font-size:1.35rem;color:var(--cr);white-space:nowrap}
+.sline{flex:1;height:1px;background:linear-gradient(90deg,rgba(116,198,157,.3),transparent)}
+.stag{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gl);background:rgba(116,198,157,.1);padding:3px 12px;border-radius:20px;border:1px solid rgba(116,198,157,.2);white-space:nowrap}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:270px;gap:12px}
+.gi{position:relative;overflow:hidden;border-radius:13px;background:rgba(45,106,79,.15);border:1px solid rgba(116,198,157,.1);cursor:pointer;transition:transform .4s cubic-bezier(.22,.9,.36,1),box-shadow .4s}
+.gi:hover{transform:scale(1.025) translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.5),0 0 0 1px rgba(116,198,157,.3);z-index:3}
+.s2{grid-column:span 2}.tall{grid-row:span 2}
+.gi img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+.gi:hover img{transform:scale(1.06)}
+.ov{position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(10,25,18,.88));opacity:0;transition:opacity .35s;display:flex;align-items:flex-end;padding:16px}
+.gi:hover .ov{opacity:1}
+.ot{font-family:'Playfair Display',serif;font-size:.95rem;color:#fff;line-height:1.3}
+.om{font-size:.68rem;color:var(--gp);letter-spacing:.1em;text-transform:uppercase;margin-top:3px}
+
+/* Video Card Styling */
+.vid-card .vbadge{position:absolute;top:11px;left:11px;background:rgba(10,25,18,.85);border:1px solid rgba(116,198,157,.35);border-radius:7px;padding:5px 12px;font-size:.7rem;color:var(--gl);text-transform:uppercase;z-index:2}
+.vid-card .play-btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:64px;height:64px;background:rgba(64,145,108,.9);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:#fff;z-index:2;transition:transform .3s,background .3s;box-shadow:0 0 30px rgba(64,145,108,.5)}
+.vid-card:hover .play-btn{transform:translate(-50%,-50%) scale(1.15);background:var(--gb)}
+
+/* Lightbox Styling */
+.lb{display:none;position:fixed;inset:0;z-index:1000;background:rgba(5,14,10,.97);align-items:center;justify-content:center;flex-direction:column;gap:14px}
+.lb.on{display:flex}
+.lb-content-wrap{position:relative;max-width:94vw;max-height:82vh;}
+.lb img, .lb video{display:block;max-width:100%;max-height:82vh;border-radius:12px;box-shadow:0 0 80px rgba(0,0,0,.8)}
+.lb-cap{color:rgba(248,245,238,.65);font-size:.82rem;text-align:center}
+.lb-close{position:fixed;top:20px;right:20px;width:42px;height:42px;background:rgba(64,145,108,.7);border:none;border-radius:50%;color:#fff;font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:1010}
+.lb-close:hover{background:var(--gb)}
+
+@media(max-width:768px){
+  .grid{grid-template-columns:1fr 1fr;grid-auto-rows:200px}
+  .tall{grid-row:span 1}.s2{grid-column:span 2}
+  .stats{grid-template-columns:1fr 1fr}
+  nav{display:none}
+}
+@media(max-width:480px){
+  .grid{grid-template-columns:1fr;grid-auto-rows:220px}
+  .s2{grid-column:span 1}
+}
+</style>
+</head>
+<body>
+
+<div class="dot-grid"></div>
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+
+<header>
+  <div class="logo">
+    <div class="logo-icon">🌾</div>
+    <div class="logo-text">
+      <strong>Pashuwala Agrotech</strong>
+      <span>Green Fodder Solutions</span>
+    </div>
+  </div>
+  <nav>
+    <a href="#">Home</a><a href="#" class="active">Gallery</a>
+    <a href="#">Products</a><a href="#">About</a><a href="#">Contact</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="badge">🌿 Our Work in Fields</div>
+  <h1>Field <em>Gallery</em></h1>
+  <p class="sub">Freshly harvested silage · Precision chopping · Bale storage</p>
+</div>
+
+<div class="filters">
+  <button class="fb on" onclick="doFilter('all',this)">All</button>
+  <button class="fb" onclick="doFilter('silage',this)">Silage Chop</button>
+  <button class="fb" onclick="doFilter('bale',this)">Bale Storage</button>
+  <button class="fb" onclick="doFilter('video',this)">Videos</button>
+</div>
+
+<div class="stats">
+  <div class="st"><div class="sn">5000<span class="su">+</span></div><div class="sl">Acres Served</div></div>
+  <div class="st"><div class="sn">120<span class="su">+</span></div><div class="sl">Farms Connected</div></div>
+  <div class="st"><div class="sn">98<span class="su">%</span></div><div class="sl">Nutrition Retained</div></div>
+  <div class="st"><div class="sn">24<span class="su">hr</span></div><div class="sl">Delivery Window</div></div>
+</div>
+
+<section class="gsec">
+  <div class="slabel">
+    <h2>Latest from the Field</h2>
+    <div class="sline"></div>
+    <span class="stag">December 2025</span>
+  </div>
+  
+  <div class="grid" id="grid">
+
+    <div class="gi tall" data-cat="silage" onclick="openImg('https://images.unsplash.com/photo-1595113316349-9fa4ee24f884?auto=format&fit=crop&q=80','Corn Silage Harvesting')">
+      <img src="https://images.unsplash.com/photo-1595113316349-9fa4ee24f884?auto=format&fit=crop&q=80" alt="Silage">
+      <div class="ov">
+        <div>
+          <div class="ot">Corn Silage Harvesting</div>
+          <div class="om">Chopping & Processing</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gi vid-card" data-cat="video" onclick="openVideo('https://www.w3schools.com/html/mov_bbb.mp4', 'Field Chopping Action')">
+      <div class="vbadge">Video</div>
+      <div class="play-btn">▶</div>
+      <img src="https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&q=80" alt="Video Thumbnail">
+      <div class="ov">
+        <div>
+          <div class="ot">Field Chopping Action</div>
+          <div class="om">High Precision Machinery</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gi" data-cat="bale" onclick="openImg('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80','Premium Bales')">
+      <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80" alt="Bales">
+      <div class="ov">
+        <div>
+          <div class="ot">Premium Bales</div>
+          <div class="om">Storage & Logistics</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="fbrand">Pashuwala <span>Agrotech</span></div>
+  <p>© 2025 Pashuwala Agrotech · Premium Green Fodder Solutions</p>
+</footer>
+
+<div class="lb" id="lb" onclick="if(event.target===this)closeLB()">
+  <button class="lb-close" onclick="closeLB()">✕</button>
+  <div id="lbm" class="lb-content-wrap"></div>
+  <div class="lb-cap" id="lbc"></div>
+</div>
+
+<script>
+// Filter Function
+function doFilter(cat, btn) {
+  document.querySelectorAll('.fb').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+  document.querySelectorAll('.gi').forEach(i => {
+    i.style.display = (cat === 'all' || i.dataset.cat === cat) ? '' : 'none';
+  });
+}
+
+// Open Image in Lightbox
+function openImg(src, cap) {
+  document.getElementById('lbm').innerHTML = `<img src="${src}" alt="${cap}">`;
+  document.getElementById('lbc').textContent = cap;
+  document.getElementById('lb').classList.add('on');
+  document.body.style.overflow = 'hidden';
+}
+
+// Open Video in Lightbox (Fixed)
+function openVideo(src, cap) {
+  document.getElementById('lbm').innerHTML = `
+    <video controls autoplay playsinline style="width:100%; height:auto;">
+      <source src="${src}" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>`;
+  document.getElementById('lbc').textContent = cap;
+  document.getElementById('lb').classList.add('on');
+  document.body.style.overflow = 'hidden';
+}
+
+// Close Lightbox
+function closeLB() {
+  document.getElementById('lb').classList.remove('on');
+  document.getElementById('lbm').innerHTML = ''; // Clears video so it stops playing
+  document.body.style.overflow = '';
+}
+</script>
+
+</body>
+</html>
 
