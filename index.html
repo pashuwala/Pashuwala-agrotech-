@@ -1008,38 +1008,3 @@ t<!DOCTYPE html>
             
     
 
-<body>
-
-    <header>
-        <h1>Pashuwala Agrotech</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="Contact.html">Contact Us</a>
-        </nav>
-    </header>
-    
-            <div id="chat-messages">
-                <div class="message bot-msg">Namaste! I am the Pashuwala Assistant. Are you looking for high-quality silage for your cows or buffaloes?</div>
-            </div>
-            <div class="chat-input-area">
-                <input type="text" id="user-input" placeholder="Type your question here...">
-            </div>
-        </div>
-        <button id="chat-button" onclick="toggleChat()">
-            <span>💬 Chat with us</span>
-        </button>
-    </div>
-
-    <script>
-        // Toggle Chatbox visibility
-        function toggleChat() {
-            const chatBox = document.getElementById('chat-box');
-            if (chatBox.style.display === 'none' || chatBox.style.display === '') {
-                chatBox.style.display = 'flex';
-            } else {
-                chatBox.style.display = 'none';
-            }
-        }
-
-        // Silage Knowledge Base
-        const silageAnswers = {
